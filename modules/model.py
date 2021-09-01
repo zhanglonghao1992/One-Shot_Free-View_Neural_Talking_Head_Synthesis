@@ -164,7 +164,7 @@ def get_rotation_matrix(yaw, pitch, roll):
 
     return rot_mat
 
-‘’‘
+'''
 def get_rotation_matrix(yaw, pitch, roll):
     yaw = yaw / 180 * 3.14
     pitch = pitch / 180 * 3.14
@@ -192,7 +192,7 @@ def get_rotation_matrix(yaw, pitch, roll):
     rot_mat = torch.einsum('bij,bjk,bkm->bim', pitch_mat, yaw_mat, roll_mat)
 
     return rot_mat
-’‘’
+'''
 
 def keypoint_transformation(kp_canonical, he, estimate_jacobian=True):
     kp = kp_canonical['value']    # (bs, k, 3)
