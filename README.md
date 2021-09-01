@@ -27,4 +27,4 @@ Note: run ```crop-video.py --inp driving_video.mp4``` to get crop suggestions an
 
 Acknowlegement: 
 --------
-Thanks to [face-vid2vid](https://github.com/NVlabs/face-vid2vid), and [AliaksandrSiarohin](https://github.com/AliaksandrSiarohin/first-order-model)
+Thanks to [NV face-vid2vid](https://github.com/NVlabs/face-vid2vid), and [AliaksandrSiarohin](https://github.com/AliaksandrSiarohin/first-order-model)
