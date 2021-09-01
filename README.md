@@ -7,3 +7,6 @@ Driving | FOMM | Ours:
 
 Free-View:  
 ![show](https://github.com/zhanglonghao1992/ReadmeImages/blob/master/images/concat.gif) 
+
+# Acknowlegement:  
+Thanks to [face-vid2vid](https://github.com/NVlabs/face-vid2vid), and [AliaksandrSiarohin](https://github.com/AliaksandrSiarohin/first-order-model)
