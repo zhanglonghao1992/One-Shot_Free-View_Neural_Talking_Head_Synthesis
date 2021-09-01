@@ -173,7 +173,7 @@ class Visualizer:
         if 'mask' in out:
             for i in range(out['mask'].shape[1]):
                 mask = out['mask'][:, i:(i+1)].data.cpu().sum(2).repeat(1, 3, 1, 1)    # (n, 3, h, w)
-                mask = F.softmax(mask.view(mask.shape[0], mask.shape[1], -1), dim=2).view(mask.shape)
+                # mask = F.softmax(mask.view(mask.shape[0], mask.shape[1], -1), dim=2).view(mask.shape)
                 mask = F.interpolate(mask, size=source.shape[1:3]).numpy()
                 mask = np.transpose(mask, [0, 2, 3, 1])
 
