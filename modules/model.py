@@ -1,5 +1,6 @@
 from torch import nn
 import torch
+from torch.functional import Tensor
 import torch.nn.functional as F
 from modules.util import AntiAliasInterpolation2d, make_coordinate_grid_2d
 from torchvision import models
@@ -7,6 +8,7 @@ import numpy as np
 from torch.autograd import grad
 import modules.hopenet as hopenet
 from torchvision import transforms
+import PIL.Image as Image
 
 
 class Vgg19(torch.nn.Module):
@@ -373,9 +375,16 @@ class GeneratorFullModel(torch.nn.Module):
             loss_values['keypoint'] = self.loss_weights['keypoint'] * value_total
 
         if self.loss_weights['headpose'] != 0:
-            transform_hopenet =  transforms.Compose([transforms.Resize(size=(224, 224)),
-                                                     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])])
-            driving_224 = transform_hopenet(x['driving'])
+            if isinstance(x['driving'], Image.Image):
+                transform_hopenet =  transforms.Compose([transforms.Resize(size=(224, 224)),
+                                                        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])])
+                driving_224 = transform_hopenet(x['driving'])
+            elif isinstance(x['driving'], Tensor):
+                device_, type_ = x['driving'].device, x['driving'].dtype
+                mean = torch.tensor([0.485, 0.456, 0.406], device=device_, dtype=type_).view(1, -1, 1, 1)
+                std = torch.tensor([0.229, 0.224, 0.225], device=device_, dtype=type_).view(1, -1, 1, 1)
+                driving_224 = x['driving'].sub(mean).div(std)
+
 
             yaw_gt, pitch_gt, roll_gt = self.hopenet(driving_224)
             yaw_gt = headpose_pred_to_degree(yaw_gt)
