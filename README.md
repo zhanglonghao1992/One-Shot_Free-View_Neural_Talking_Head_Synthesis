@@ -37,8 +37,8 @@ Pretrained Model:
  Vox-512 | VoxCeleb-v2  |  soon  |  soon  |
  
  Note:
- 1. At present, the training of the Beta Version is not sufficient, the clarity of the result is poor, and the mouth shape and eyes are not very accurate.
- 2. It is recommended that Yaw, Pitch and Roll are within ±45°, ±20° and ±20° respectively for free-view synthesis.
+ 1. At present, the Beta Version is not well tuned, the definition of synthesized image is poor, and the mouth shape and eyes are not very accurate. I will further optimize and upgrade the model to improve the performance recently.
+ 2. For free-view synthesis, it is recommended that Yaw, Pitch and Roll are within ±45°, ±20° and ±20° respectively.
 
 Acknowlegement: 
 --------
