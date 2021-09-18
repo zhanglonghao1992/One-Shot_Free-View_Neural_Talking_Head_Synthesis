@@ -1,5 +1,5 @@
 # One-Shot Free-View Neural Talking Head Synthesis
-Unofficial pytorch implementation of paper "One-Shot Free-View Neural Talking-Head Synthesis for Video Conferencing"  
+Unofficial pytorch implementation of paper "One-Shot Free-View Neural Talking-Head Synthesis for Video Conferencing".  
 
 I‘ve only tried on ```python 3.6``` and ```pytorch 1.7.0```. 
 
@@ -42,4 +42,4 @@ Pretrained Model:
 
 Acknowlegement: 
 --------
-Thanks to [NV](https://github.com/NVlabs/face-vid2vid), [AliaksandrSiarohin](https://github.com/AliaksandrSiarohin/first-order-model) and [DeepHeadPose](https://github.com/DriverDistraction/DeepHeadPose)
+Thanks to [NV](https://github.com/NVlabs/face-vid2vid), [AliaksandrSiarohin](https://github.com/AliaksandrSiarohin/first-order-model) and [DeepHeadPose](https://github.com/DriverDistraction/DeepHeadPose).
