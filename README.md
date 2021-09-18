@@ -34,7 +34,7 @@ Pretrained Model:
  Vox-256 | VoxCeleb-v2  |  soon  |  soon  |
  Vox-512 | VoxCeleb-v2  |  soon  |  soon  |
  
- Note: It is recommended that Yaw, Pitch and Roll are within ±45°, ±20° and ±20° respectively
+ Note: It is recommended that Yaw, Pitch and Roll are within ±45°, ±20° and ±20° respectively for free-view synthesis.
 
 Acknowlegement: 
 --------
