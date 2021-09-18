@@ -1,7 +1,7 @@
 # One-Shot Free-View Neural Talking Head Synthesis
 Unofficial pytorch implementation of paper "One-Shot Free-View Neural Talking-Head Synthesis for Video Conferencing"  
 
-We test on ```python 3.6``` and ```pytorch 1.7.0```. 
+We train and test it only on ```python 3.6``` and ```pytorch 1.7.0```. 
 
 Driving | FOMM | Ours:    
 ![show](https://github.com/zhanglonghao1992/ReadmeImages/blob/master/images/081.gif) 
