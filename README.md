@@ -1,7 +1,7 @@
 # One-Shot Free-View Neural Talking Head Synthesis
 Unofficial pytorch implementation of paper "One-Shot Free-View Neural Talking-Head Synthesis for Video Conferencing"  
 
-We train and test it only on ```python 3.6``` and ```pytorch 1.7.0```. 
+I‘ve only tried on ```python 3.6``` and ```pytorch 1.7.0```. 
 
 Driving | FOMM | Ours:    
 ![show](https://github.com/zhanglonghao1992/ReadmeImages/blob/master/images/081.gif) 
@@ -36,7 +36,9 @@ Pretrained Model:
  Vox-256 | VoxCeleb-v2  |  soon  |  soon  |
  Vox-512 | VoxCeleb-v2  |  soon  |  soon  |
  
- Note: It is recommended that Yaw, Pitch and Roll are within ±45°, ±20° and ±20° respectively for free-view synthesis.
+ Note:
+ 1. At present, the training of the Beta Version is not sufficient, the clarity of the result is poor, and the mouth shape and eyes are not very accurate.
+ 2. It is recommended that Yaw, Pitch and Roll are within ±45°, ±20° and ±20° respectively for free-view synthesis.
 
 Acknowlegement: 
 --------
