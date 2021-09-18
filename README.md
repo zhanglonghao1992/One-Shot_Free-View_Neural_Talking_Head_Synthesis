@@ -28,6 +28,13 @@ Note: run ```crop-video.py --inp driving_video.mp4``` to get crop suggestions an
 Pretrained Model:  
 --------
 
+ ------- |  Train Set   | Baidu Netdisk | Google Drive | 
+ ------- |------------  |-----------    |--------      |
+ Vox-256 | VoxCeleb-v1  | [Baidu](https://pan.baidu.com/s/1lLS4ArbK2yWelsL-EtwU8g) (PW: c0tc)|  soon  |
+ Vox-256 | VoxCeleb-v2  |  soon  |  soon  |
+ Vox-512 | VoxCeleb-v2  |  soon  |  soon  |
+ 
+ Note: It is recommended that Yaw, Pitch and Roll are within ±45°, ±20° and ±20° respectively
 
 Acknowlegement: 
 --------
