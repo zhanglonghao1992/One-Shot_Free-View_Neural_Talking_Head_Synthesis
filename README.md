@@ -23,7 +23,11 @@ free-view (e.g. yaw=20, pitch=roll=0):
 ```
 python demo.py --config config/vox-256.yaml --checkpoint path/to/checkpoint --source_image path/to/source --driving_video path/to/driving --relative --adapt_scale --find_best_frame --free_view --yaw 20 --pitch 0 --row 0
 ```
-Note: run ```crop-video.py --inp driving_video.mp4``` to get crop suggestions and crop the driving video as prompted.
+Note: run ```crop-video.py --inp driving_video.mp4``` to get crop suggestions and crop the driving video as prompted.  
+
+Pretrained Model:  
+--------
+
 
 Acknowlegement: 
 --------
