@@ -29,7 +29,7 @@ Note: run ```crop-video.py --inp driving_video.mp4``` first to get the cropping 
 Pretrained Model:  
 --------
 
-  Model  |  Train Set   | Baidu Netdisk | Google Drive | 
+  Model  |  Train Set   | Baidu Netdisk | Meida Fire | 
  ------- |------------  |-----------    |--------      |
  Vox-256-Beta| VoxCeleb-v1  | [Baidu](https://pan.baidu.com/s/1lLS4ArbK2yWelsL-EtwU8g) (PW: c0tc)|  soon  |
  Vox-256-Stable| VoxCeleb-v1  |  soon  |  soon  |
