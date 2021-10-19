@@ -60,7 +60,7 @@ class DenseMotionNetwork(nn.Module):
         feature_repeat = feature.unsqueeze(1).unsqueeze(1).repeat(1, self.num_kp+1, 1, 1, 1, 1, 1)      # (bs, num_kp+1, 1, c, d, h, w)
         feature_repeat = feature_repeat.view(bs * (self.num_kp+1), -1, d, h, w)                         # (bs*(num_kp+1), c, d, h, w)
         sparse_motions = sparse_motions.view((bs * (self.num_kp+1), d, h, w, -1))                       # (bs*(num_kp+1), d, h, w, 3)
-        sparse_deformed = F.grid_sample(feature_repeat, sparse_motions)
+        sparse_deformed = F.grid_sample(feature_repeat, sparse_motions, align_corners=False)
         sparse_deformed = sparse_deformed.view((bs, self.num_kp+1, -1, d, h, w))                        # (bs, num_kp+1, c, d, h, w)
         return sparse_deformed
 

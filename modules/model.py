@@ -92,7 +92,7 @@ class Transform:
         grid = make_coordinate_grid_2d(frame.shape[2:], type=frame.type()).unsqueeze(0)
         grid = grid.view(1, frame.shape[2] * frame.shape[3], 2)
         grid = self.warp_coordinates(grid).view(self.bs, frame.shape[2], frame.shape[3], 2)
-        return F.grid_sample(frame, grid, padding_mode="reflection")
+        return F.grid_sample(frame, grid, padding_mode="reflection", align_corners=False)
 
     def warp_coordinates(self, coordinates):
         theta = self.theta.type(coordinates.type())

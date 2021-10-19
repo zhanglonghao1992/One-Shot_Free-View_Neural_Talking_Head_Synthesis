@@ -65,7 +65,7 @@ class OcclusionAwareGenerator(nn.Module):
             deformation = deformation.permute(0, 4, 1, 2, 3)
             deformation = F.interpolate(deformation, size=(d, h, w), mode='trilinear')
             deformation = deformation.permute(0, 2, 3, 4, 1)
-        return F.grid_sample(inp, deformation)
+        return F.grid_sample(inp, deformation, align_corners=False)
 
     def forward(self, source_image, kp_driving, kp_source):
         # Encoding (downsampling) part
@@ -110,7 +110,7 @@ class OcclusionAwareGenerator(nn.Module):
         for i in range(len(self.up_blocks)):
             out = self.up_blocks[i](out)
         out = self.final(out)
-        out = F.sigmoid(out)
+        out = F.sigmoid(out, dim=1)
 
         output_dict["prediction"] = out
 
