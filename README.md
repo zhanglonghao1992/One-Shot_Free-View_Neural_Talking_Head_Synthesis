@@ -37,8 +37,11 @@ Pretrained Model:
  Vox-512 | VoxCeleb-v2  |  soon  |  soon  |
  
  Note:
- 1. At present, the Beta Version is not well tuned, the definition of synthesized image is poor, and the mouth shape and eyes are not very accurate.
+ 1. For now, the Beta Version is not well tuned.
  2. For free-view synthesis, it is recommended that Yaw, Pitch and Roll are within ±45°, ±20° and ±20° respectively.
+ 3. Face Restoration algorithms ([GPEN](https://github.com/yangxy/GPEN)) can be used for post-processing to significantly improve the resolution.
+![show](https://github.com/zhanglonghao1992/ReadmeImages/blob/master/images/s%20r.gif) 
+
 
 Acknowlegement: 
 --------
