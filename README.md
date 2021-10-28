@@ -32,7 +32,6 @@ Pretrained Model:
   Model  |  Train Set   | Baidu Netdisk | Meida Fire | 
  ------- |------------  |-----------    |--------      |
  Vox-256-Beta| VoxCeleb-v1  | [Baidu](https://pan.baidu.com/s/1lLS4ArbK2yWelsL-EtwU8g) (PW: c0tc)|  [MF](https://www.mediafire.com/folder/rw51an7tk7bh2/TalkingHead)  |
- Vox-256-Stable| VoxCeleb-v1  |  soon  |  soon  |
  Vox-256 | VoxCeleb-v2  |  soon  |  soon  |
  Vox-512 | VoxCeleb-v2  |  soon  |  soon  |
  
