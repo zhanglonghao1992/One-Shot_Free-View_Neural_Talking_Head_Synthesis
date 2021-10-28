@@ -190,7 +190,5 @@ class Visualizer:
                     images.append(mask)
 
         image = self.create_image_grid(*images)
-        image = 255 * image
-        image = np.clip(image, 0, 255)
-        image = image.astype(np.uint8)
+        image = (255 * image).astype(np.uint8)
         return image
