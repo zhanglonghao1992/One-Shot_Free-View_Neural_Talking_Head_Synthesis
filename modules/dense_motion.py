@@ -37,6 +37,8 @@ class DenseMotionNetwork(nn.Module):
         identity_grid = identity_grid.view(1, 1, d, h, w, 3)
         coordinate_grid = identity_grid - kp_driving['value'].view(bs, self.num_kp, 1, 1, 1, 3)
         
+        k = coordinate_grid.shape[1]
+        
         # if 'jacobian' in kp_driving:
         if 'jacobian' in kp_driving and kp_driving['jacobian'] is not None:
             jacobian = torch.matmul(kp_source['jacobian'], torch.inverse(kp_driving['jacobian']))
