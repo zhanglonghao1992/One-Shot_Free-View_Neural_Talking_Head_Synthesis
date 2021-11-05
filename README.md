@@ -3,8 +3,9 @@ Unofficial pytorch implementation of paper "One-Shot Free-View Neural Talking-He
 
 ```Python 3.6``` and ```Pytorch 1.7``` are used. 
 
-[Updates]
-```2021.11.05```: Replace Jacobian with the rotation matrix (Assuming J = R) to avoid estimating Jacobian.
+
+[Updates]  
+```2021.11.05```: Replace Jacobian with the rotation matrix (Assuming J = R) to avoid estimating Jacobian. Fix the representation error of rotation matrix.
 
 Driving | FOMM | Ours:    
 ![show](https://github.com/zhanglonghao1992/ReadmeImages/blob/master/images/081.gif) 
