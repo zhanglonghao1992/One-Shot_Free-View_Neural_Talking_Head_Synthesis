@@ -135,7 +135,8 @@ def headpose_pred_to_degree(pred):
 
     return degree
 
-
+'''
+# beta version
 def get_rotation_matrix(yaw, pitch, roll):
     yaw = yaw / 180 * 3.14
     pitch = pitch / 180 * 3.14
@@ -163,8 +164,8 @@ def get_rotation_matrix(yaw, pitch, roll):
     rot_mat = torch.einsum('bij,bjk,bkm->bim', roll_mat, pitch_mat, yaw_mat)
 
     return rot_mat
-
 '''
+
 def get_rotation_matrix(yaw, pitch, roll):
     yaw = yaw / 180 * 3.14
     pitch = pitch / 180 * 3.14
@@ -192,6 +193,38 @@ def get_rotation_matrix(yaw, pitch, roll):
     rot_mat = torch.einsum('bij,bjk,bkm->bim', pitch_mat, yaw_mat, roll_mat)
 
     return rot_mat
+
+'''
+# beta version
+def keypoint_transformation(kp_canonical, he, estimate_jacobian=True):
+    kp = kp_canonical['value']    # (bs, k, 3)
+    yaw, pitch, roll = he['yaw'], he['pitch'], he['roll']
+    t, exp = he['t'], he['exp']
+    
+    yaw = headpose_pred_to_degree(yaw)
+    pitch = headpose_pred_to_degree(pitch)
+    roll = headpose_pred_to_degree(roll)
+
+    rot_mat = get_rotation_matrix(yaw, pitch, roll)    # (bs, 3, 3)
+    
+    # keypoint rotation
+    kp_rotated = torch.einsum('bmp,bkp->bkm', rot_mat, kp)
+
+    # keypoint translation
+    t = t.unsqueeze_(1).repeat(1, kp.shape[1], 1)
+    kp_t = kp_rotated + t
+
+    # add expression deviation 
+    exp = exp.view(exp.shape[0], -1, 3)
+    kp_transformed = kp_t + exp
+
+    if estimate_jacobian:
+        jacobian = kp_canonical['jacobian']   # (bs, k ,3, 3)
+        jacobian_transformed = torch.einsum('bmp,bkps->bkms', rot_mat, jacobian)
+    else:
+        jacobian_transformed = None
+
+    return {'value': kp_transformed, 'jacobian': jacobian_transformed}
 '''
 
 def keypoint_transformation(kp_canonical, he, estimate_jacobian=True):
@@ -222,7 +255,7 @@ def keypoint_transformation(kp_canonical, he, estimate_jacobian=True):
     else:
         jacobian_transformed = None
 
-    return {'value': kp_transformed, 'jacobian': jacobian_transformed}
+    return {'value': kp_transformed, 'jacobian': jacobian_transformed, 'rot': rot_mat}
 
 
 class GeneratorFullModel(torch.nn.Module):
