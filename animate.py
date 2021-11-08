@@ -56,6 +56,6 @@ def normalize_kp(kp_source, kp_driving, kp_driving_initial, adapt_movement_scale
             kp_new['jacobian'] = torch.matmul(jacobian_diff, kp_source['jacobian'])
         else:
             rot_diff = torch.matmul(kp_driving['rot'], torch.inverse(kp_driving_initial['rot']))
-            kp_new['rot'] = torch.matmul(jacobian_diff, kp_source['rot'])
+            kp_new['rot'] = torch.matmul(rot_diff, kp_source['rot'])
 
     return kp_new
