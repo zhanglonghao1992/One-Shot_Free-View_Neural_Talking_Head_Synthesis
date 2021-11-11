@@ -46,6 +46,7 @@ class DenseMotionNetwork(nn.Module):
             jacobian = jacobian.repeat(1, 1, d, h, w, 1, 1)
             coordinate_grid = torch.matmul(jacobian, coordinate_grid.unsqueeze(-1))
             coordinate_grid = coordinate_grid.squeeze(-1)
+        '''
         if 'rot' in kp_driving:
             rot_s = kp_source['rot']
             rot_d = kp_driving['rot']
@@ -56,7 +57,7 @@ class DenseMotionNetwork(nn.Module):
             coordinate_grid = torch.matmul(rot, coordinate_grid.unsqueeze(-1))
             coordinate_grid = coordinate_grid.squeeze(-1)
             # print(coordinate_grid.shape)
-
+        '''
         driving_to_source = coordinate_grid + kp_source['value'].view(bs, self.num_kp, 1, 1, 1, 3)    # (bs, num_kp, d, h, w, 3)
 
         #adding background feature
