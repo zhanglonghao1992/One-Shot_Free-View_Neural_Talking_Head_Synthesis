@@ -194,8 +194,8 @@ def make_animation(source_image, driving_video, generator, kp_detector, he_estim
         he_source = he_estimator(source)
         he_driving_initial = he_estimator(driving[:, :, 0])
 
-        kp_source = keypoint_transformation(kp_canonical, he_source)
-        kp_driving_initial = keypoint_transformation(kp_canonical, he_driving_initial)
+        kp_source = keypoint_transformation(kp_canonical, he_source, estimate_jacobian)
+        kp_driving_initial = keypoint_transformation(kp_canonical, he_driving_initial, estimate_jacobian)
         # kp_driving_initial = keypoint_transformation(kp_canonical, he_driving_initial, free_view=free_view, yaw=yaw, pitch=pitch, roll=roll)
 
         for frame_idx in tqdm(range(driving.shape[2])):
@@ -203,7 +203,7 @@ def make_animation(source_image, driving_video, generator, kp_detector, he_estim
             if not cpu:
                 driving_frame = driving_frame.cuda()
             he_driving = he_estimator(driving_frame)
-            kp_driving = keypoint_transformation(kp_canonical, he_driving, free_view=free_view, yaw=yaw, pitch=pitch, roll=roll)
+            kp_driving = keypoint_transformation(kp_canonical, he_driving, estimate_jacobian, free_view=free_view, yaw=yaw, pitch=pitch, roll=roll)
             kp_norm = normalize_kp(kp_source=kp_source, kp_driving=kp_driving,
                                    kp_driving_initial=kp_driving_initial, use_relative_movement=relative,
                                    use_relative_jacobian=estimate_jacobian, adapt_movement_scale=adapt_movement_scale)
