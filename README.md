@@ -11,7 +11,7 @@ Updates:
 * Correct the rotation matrix.
 
 ```2021.11.17``` :
-* Better Generator, better performance (models and checkpoints will be released soon).  
+* Better Generator, better performance (models and checkpoints have been released).  
 
 Driving | Beta Version | FOMM | New Version:  
 
