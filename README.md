@@ -46,7 +46,7 @@ Note: run ```crop-video.py --inp driving_video.mp4``` first to get the cropping 
 Pretrained Model:  
 --------
 
-  Model  |  Train Set   | Baidu Netdisk | Meida Fire | 
+  Model  |  Train Set   | Baidu Netdisk | Media Fire | 
  ------- |------------  |-----------    |--------      |
  Vox-256-Beta| VoxCeleb-v1  | [Baidu](https://pan.baidu.com/s/1lLS4ArbK2yWelsL-EtwU8g) (PW: c0tc)|  [MF](https://www.mediafire.com/folder/rw51an7tk7bh2/TalkingHead)  |
  Vox-256-New | VoxCeleb-v1  |  -  |  [MF](https://www.mediafire.com/folder/fcvtkn21j57bb/TalkingHead_Update)  |
